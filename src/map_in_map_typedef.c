@@ -3,7 +3,8 @@
 
 #include "bpf.h"
 
-typedef struct {
+// Test for inner map typedefs with CV qualifiers.
+typedef const volatile struct {
     __uint(type, BPF_MAP_TYPE_ARRAY);
     __type(key, uint32_t);
     __type(value, uint32_t);
@@ -19,7 +20,6 @@ typedef struct {
 
 __attribute__((section(".maps"), used))
 outer_map_t outer_map_1, outer_map_2;
-
 
 int func(void* ctx) {
     uint32_t outer_key = 0;
