@@ -20,8 +20,6 @@ struct {
     .values = { &map },
 };
 
-
-
 __attribute__((section("xdp_prog"), used)) int
 caller(struct xdp_md* ctx)
 {
